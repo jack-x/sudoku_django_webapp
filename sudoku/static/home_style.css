@@ -17,6 +17,12 @@
   height:450px;
 
 } */
+
+#finalMessage{
+  margin:1em auto;
+  align:center;
+   text-align: center;
+}
 input {
     width: 100%;
     box-sizing: border-box;
