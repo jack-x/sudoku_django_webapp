@@ -7,5 +7,5 @@ Azure was not releasing database resources for trial users, hence decided to wor
 No database interaction whatsoever.
 
 Up and running at the following url:
-https://djangosudoku.azurewebsites.net/#
+https://djangosudoku.azurewebsites.net/
 Till my trial expires
