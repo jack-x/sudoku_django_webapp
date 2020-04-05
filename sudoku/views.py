@@ -22,6 +22,12 @@ def index(request):
         checkingValue = request.POST.get('Submit')
         hintbuttonPress = request.POST.get('hintButton')
 
+        veryEasyButton = request.POST.get('veryEasyButton')
+        easyButton = request.POST.get('easyButton')
+        mediumButton = request.POST.get('mediumButton')
+        hardButton = request.POST.get('hardButton')
+
+
         if hintbuttonPress == 'Pressed':
             keyList = list(differenceDict.keys())
             if len(keyList) != 0:
@@ -47,7 +53,8 @@ def index(request):
                         sudokuDictionaryResponse[newKey] = ' '
                     else:
                         sudokuDictionaryResponse[newKey] = solutionGlobal[x][y]
-
+            sudokuDictionaryResponse["UserSolutionMessage"] = "Full Sudoku Solution Displayed!!"
+            sudokuDictionaryResponse['LevelName'] = 'Sudoku Solved'
             return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
 
         if checkingValue == 'submitSudoku':
@@ -62,7 +69,7 @@ def index(request):
             flag = True
             for x in range(0,9):
                 for y in range(0,9):
-                    print(solutionGlobal)
+                    # print(solutionGlobal)
                     solutionvalue = solutionGlobal[x][y]
                     useranswer = userSolution['cell' + str(x) + str(y)]
                     if str(solutionvalue) != str(useranswer):
@@ -87,6 +94,188 @@ def index(request):
                 sudokuDictionaryResponse["UserSolutionMessage"] = "Wrong Input! Please try again!!"
                 return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
 
+
+        if veryEasyButton == 'Pressed':
+            levelList = [10,11,12,13,14,15]
+            #Clean up the global variables
+            solutionGlobal = []
+            differenceDict = dict()
+            sudokuDictionaryResponse = dict()
+
+
+            print("Page has been reloaded")
+            print("Generating new Puzzle")
+            newPuzzle = Puzzler.createSudokuPuzzleWithSolution(random.choice(levelList))
+
+            puzzle = newPuzzle[0]
+            solution = newPuzzle[1]
+            # global solutionGlobal
+            solutionGlobal = solution
+
+            print("Loading Differences")
+            #load differences
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    if puzzle[x][y] == 0:
+                        differenceDict['cell'+str(x)+str(y)] = solution[x][y]
+
+
+
+
+            sudokuWebKeyGen = 'cell'
+
+            sudokuDictionaryResponse = dict()
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    newKey = sudokuWebKeyGen+str(x)+str(y)
+                    if puzzle[x][y] == 0:
+                        sudokuDictionaryResponse[newKey] = ' '
+                    else:
+                        sudokuDictionaryResponse[newKey] = puzzle[x][y]
+            # print(differenceDict)
+            # print(sudokuDictionaryResponse)
+            sudokuDictionaryResponse['LevelName'] = 'Level: Very Easy'
+            sudokuDictionaryResponse["UserSolutionMessage"] = "Sudoku Load Complete!!"
+            return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
+
+        if easyButton == 'Pressed':
+            levelList = [14,15,16,17,18,19,20,21,22]
+            #Clean up the global variables
+            solutionGlobal = []
+            differenceDict = dict()
+            sudokuDictionaryResponse = dict()
+
+
+            print("Page has been reloaded")
+            print("Generating new Puzzle")
+            newPuzzle = Puzzler.createSudokuPuzzleWithSolution(random.choice(levelList))
+
+            puzzle = newPuzzle[0]
+            solution = newPuzzle[1]
+            # global solutionGlobal
+            solutionGlobal = solution
+
+            print("Loading Differences")
+            #load differences
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    if puzzle[x][y] == 0:
+                        differenceDict['cell'+str(x)+str(y)] = solution[x][y]
+
+
+
+
+            sudokuWebKeyGen = 'cell'
+
+            sudokuDictionaryResponse = dict()
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    newKey = sudokuWebKeyGen+str(x)+str(y)
+                    if puzzle[x][y] == 0:
+                        sudokuDictionaryResponse[newKey] = ' '
+                    else:
+                        sudokuDictionaryResponse[newKey] = puzzle[x][y]
+            # print(differenceDict)
+            # print(sudokuDictionaryResponse)
+            sudokuDictionaryResponse['LevelName'] = 'Level: Easy'
+            sudokuDictionaryResponse["UserSolutionMessage"] = "Sudoku Load Complete!!"
+            return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
+
+        if mediumButton == 'Pressed':
+            levelList = [21,22,23,24,25,26,27,28,29,30,31,32]
+            #Clean up the global variables
+            solutionGlobal = []
+            differenceDict = dict()
+            sudokuDictionaryResponse = dict()
+
+
+            print("Page has been reloaded")
+            print("Generating new Puzzle")
+            newPuzzle = Puzzler.createSudokuPuzzleWithSolution(random.choice(levelList))
+
+            puzzle = newPuzzle[0]
+            solution = newPuzzle[1]
+            # global solutionGlobal
+            solutionGlobal = solution
+
+            print("Loading Differences")
+            #load differences
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    if puzzle[x][y] == 0:
+                        differenceDict['cell'+str(x)+str(y)] = solution[x][y]
+
+
+
+
+            sudokuWebKeyGen = 'cell'
+
+            sudokuDictionaryResponse = dict()
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    newKey = sudokuWebKeyGen+str(x)+str(y)
+                    if puzzle[x][y] == 0:
+                        sudokuDictionaryResponse[newKey] = ' '
+                    else:
+                        sudokuDictionaryResponse[newKey] = puzzle[x][y]
+            # print(differenceDict)
+            # print(sudokuDictionaryResponse)
+            sudokuDictionaryResponse['LevelName'] = 'Level: Medium'
+            sudokuDictionaryResponse["UserSolutionMessage"] = "Sudoku Load Complete!!"
+            return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
+
+        if hardButton == 'Pressed':
+            levelList = [27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
+            #Clean up the global variables
+            solutionGlobal = []
+            differenceDict = dict()
+            sudokuDictionaryResponse = dict()
+
+
+            print("Page has been reloaded")
+            print("Generating new Puzzle")
+            newPuzzle = Puzzler.createSudokuPuzzleWithSolution(random.choice(levelList))
+
+            puzzle = newPuzzle[0]
+            solution = newPuzzle[1]
+            # global solutionGlobal
+            solutionGlobal = solution
+
+            print("Loading Differences")
+            #load differences
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    if puzzle[x][y] == 0:
+                        differenceDict['cell'+str(x)+str(y)] = solution[x][y]
+
+
+
+
+            sudokuWebKeyGen = 'cell'
+
+            sudokuDictionaryResponse = dict()
+
+            for x in range(0,9):
+                for y in range(0,9):
+                    newKey = sudokuWebKeyGen+str(x)+str(y)
+                    if puzzle[x][y] == 0:
+                        sudokuDictionaryResponse[newKey] = ' '
+                    else:
+                        sudokuDictionaryResponse[newKey] = puzzle[x][y]
+            # print(differenceDict)
+            # print(sudokuDictionaryResponse)
+
+            sudokuDictionaryResponse['LevelName'] = 'Level: Hard'
+            sudokuDictionaryResponse["UserSolutionMessage"] = "Sudoku Load Complete!!"
+            return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
+
     #Clean up the global variables
     solutionGlobal = []
     differenceDict = dict()
@@ -95,7 +284,7 @@ def index(request):
 
     print("Page has been reloaded")
     print("Generating new Puzzle")
-    newPuzzle = Puzzler.createSudokuPuzzleWithSolution(40)
+    newPuzzle = Puzzler.createSudokuPuzzleWithSolution(random.choice([10,11,12,13]))
 
     puzzle = newPuzzle[0]
     solution = newPuzzle[1]
@@ -124,8 +313,11 @@ def index(request):
                 sudokuDictionaryResponse[newKey] = ' '
             else:
                 sudokuDictionaryResponse[newKey] = puzzle[x][y]
-    print(differenceDict)
-    print(sudokuDictionaryResponse)
+    # print(differenceDict)
+    # print(sudokuDictionaryResponse)
+    sudokuDictionaryResponse['LevelName'] = 'Level: Easy'
+    sudokuDictionaryResponse["UserSolutionMessage"] = "Sudoku Load Complete!!"
+
     return render(request,'sudoku/home.html',context = sudokuDictionaryResponse)
 
 def newHome(request):

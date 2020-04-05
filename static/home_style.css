@@ -68,14 +68,14 @@ td{
 }
 
 td:first-child {
-  border-left:4px solid;
+  border-left:5px solid;
 }
 td:nth-child(3n) {
   border-right:4px solid ;
 }
 tr:first-child {
-  border-top:4px solid;
+  border-top:5px solid;
 }
 tr:nth-child(3n) td {
-  border-bottom:4px solid ;
+  border-bottom:5px solid ;
 }
