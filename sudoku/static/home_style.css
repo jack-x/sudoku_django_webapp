@@ -1,3 +1,4 @@
+
 #subheading{
   font-size: 20px;
   color:grey;
@@ -51,14 +52,14 @@ button{
 }
 
 input {
-    height: 50px;
-    width: 50px;
+    height: 70px;
+    width: 70px;
 }
 
 td{
   border: 1px dashed black;
-  width:50px;
-  height:50px;
+  width:70px;
+  height:70px;
   font-size: 20px;
   text-align:center;
 }
@@ -68,14 +69,14 @@ td{
 }
 
 td:first-child {
-  border-left:solid;
+  border-left:5px solid;
 }
 td:nth-child(3n) {
-  border-right:solid ;
+  border-right:5px solid ;
 }
 tr:first-child {
-  border-top:solid;
+  border-top:5px solid;
 }
 tr:nth-child(3n) td {
-  border-bottom:solid ;
+  border-bottom:5px solid ;
 }

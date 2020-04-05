@@ -64,6 +64,7 @@ def index(request):
             for x in range(0,9):
                 for y in range(0,9):
                     userSolution['cell'+str(x)+str(y)] = request.POST.get('cell'+str(x)+str(y))
+            print(userSolution)
 
             #comparison
             flag = True
