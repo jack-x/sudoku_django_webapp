@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{% static 'home_style.css' %}">
+    <meta charset="utf-8">
+    <title>Home Page</title>
+  </head>
+  <body>
+<h2> Making a simple sudoku app</h2>
+<p id='subheading'>No styling for now just a simple app to get the Pipeline to work</p>
+<br/>
+<br/>
+
+<table id='sudokugrid'>
+  <tr><td>{{ cell00 }} </td><td>{{ cell01 }} </td><td>{{ cell02 }} </td><td>{{ cell03 }} </td><td>{{ cell04 }} </td><td>{{ cell05 }} </td><td>{{ cell06 }} </td><td>{{ cell07 }}
+  </td><td>{{ cell08 }} </td></tr><tr><td>{{ cell10 }} </td><td>{{ cell11 }} </td><td>{{ cell12 }} </td><td>{{ cell13 }} </td><td>{{ cell14 }} </td><td>{{ cell15 }}</td><td>{{  cell16 }} </td><td>{{ cell17 }} </td><td>{{ cell18 }} </td></tr><tr><td>{{ cell20 }} </td><td>{{ cell21 }} </td><td>{{ cell22 }} </td><td>{{ cell23 }} </td><td>{{ cell24 }} </  td><td>{{ cell25 }} </td><td>{{ cell26 }} </td><td>{{ cell27 }} </td><td>{{ cell28 }} </td></tr><tr><td>{{ cell30 }} </td><td>{{ cell31 }} </td><td>{{ cell32 }} </td><td>{{ cell33 }} </td><td>{{ cell34 }} </td><td>{{ cell35 }} </td><td>{{ cell36 }} </td><td>{{ cell37 }} </td><td>{{ cell38 }} </td></tr><tr><td>{{ cell40 }} </td><td>{{ cell41 }} </td  ><td>{{ cell42 }} </td><td>{{ cell43 }} </td><td>{{ cell44 }} </td><td>{{ cell45 }} </td><td>{{ cell46 }} </td><td>{{ cell47 }} </td><td>{{ cell48 }} </td></tr><tr><td>{{ cell50 }} </td><td>{{ cell51 }} </td><td>{{ cell52 }} </td><td>{{ cell53 }} </td><td>{{ cell54 }} </td><td>{{ cell55 }} </td><td>{{ cell56 }} </td><td>{{ cell57 }} </td><td>{{ cell58 }} </td></tr><tr><td>{{ cell60 }} </td><td>{{ cell61 }} </td><td>{{ cell62 }} </td><td>{{ cell63 }} </td><td>{{ cell64 }} </td><td>{{ cell65 }} </td><td>{{ cell66 }} </td><td>{{ cell67 }} </td><td>{{ cell68 }} </td></tr><tr><td>{{ cell70 }} </td><td>{{ cell71 }} </td><td>{{ cell72 }} </td><td>{{ cell73 }} </td><td>{{ cell74 }} </td><td>{{ cell75 }} </td><td>{{ cell76 }} </td><td>{{ cell77 }} </td><td>{{ cell78 }} </td></tr><tr><td>{{ cell80 }} </td><td>{{ cell81 }} </td><td>{{ cell82 }} </td><td>{{ cell83 }} </td><td>{{ cell84 }} </td><td>{{ cell85 }} </td><td>{{ cell86 }} </td><td>{{ cell87 }} </td><td>{{ cell88 }} </td></tr>
+    </table>
+
+<br/>
+
+<form class="" action="#" method="post">
+    {% csrf_token %}
+<button type='submit' name="button">Generate Sudoku</button>
+<button type="submit" id='solveButton' name="solveButton" value='100GO'>Solve Sudoku</button>
+</form>
+
+  </body>
+</html>
